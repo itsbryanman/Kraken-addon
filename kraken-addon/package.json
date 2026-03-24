@@ -1,0 +1,76 @@
+{
+  "name": "kraken-addon",
+  "version": "1.0.0",
+  "description": "Hosted Stremio addon with 50+ torrent providers, 8 debrid services, and smart ranking.",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/itsbryanman/Kraken-addon"
+  },
+  "homepage": "https://github.com/itsbryanman/Kraken-addon",
+  "bugs": {
+    "url": "https://github.com/itsbryanman/Kraken-addon/issues"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node-dev --respawn src/index.ts",
+    "test": "jest",
+    "lint": "eslint src/**/*.ts",
+    "format": "prettier --write src/**/*.ts",
+    "docker:build": "docker build -t kraken-addon .",
+    "docker:run": "docker run -p 7000:7000 kraken-addon",
+    "ingest": "ts-node src/scripts/ingest.ts",
+    "cache:warm": "ts-node src/scripts/warm-cache.ts"
+  },
+  "keywords": [
+    "stremio",
+    "addon",
+    "torrent",
+    "debrid",
+    "streaming"
+  ],
+  "author": "Backwoods Development",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "axios": "^1.6.7",
+    "cheerio": "^1.0.0-rc.12",
+    "node-cache": "^5.1.2",
+    "ioredis": "^5.3.2",
+    "p-limit": "^4.0.0",
+    "p-queue": "^7.4.1",
+    "parse-torrent-title": "^2.1.0",
+    "magnet-uri": "^6.2.0",
+    "bencode": "^4.0.0",
+    "dotenv": "^16.4.1",
+    "winston": "^3.11.0",
+    "bottleneck": "^2.19.5",
+    "lru-cache": "^10.2.0",
+    "zod": "^3.22.4",
+    "compression": "^1.7.4",
+    "helmet": "^7.1.0",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/cors": "^2.8.17",
+    "@types/node": "^20.11.16",
+    "@types/compression": "^1.7.5",
+    "@types/uuid": "^9.0.8",
+    "typescript": "^5.3.3",
+    "ts-node-dev": "^2.0.0",
+    "ts-node": "^10.9.2",
+    "jest": "^29.7.0",
+    "@types/jest": "^29.5.12",
+    "ts-jest": "^29.1.2",
+    "eslint": "^8.56.0",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "prettier": "^3.2.5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
